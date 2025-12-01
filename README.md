@@ -188,12 +188,106 @@ python run_task2.py
 - ✅ 3+ themes per bank with examples
 - ✅ Modular pipeline code
 
+## 🗄️ Task 3: Database Storage (PostgreSQL)
+
+### 🔬 Methodology
+
+1. **Database Setup**:
+
+   - PostgreSQL database named `bank_reviews`
+   - Two main tables: `banks` and `reviews`
+   - Foreign key relationships for data integrity
+   - Indexes for query performance
+
+2. **Database Schema**:
+
+   **Banks Table**:
+
+   - `bank_id` (SERIAL PRIMARY KEY): Unique identifier
+   - `bank_name` (VARCHAR): Bank name (CBE, BOA, Dashen)
+   - `app_name` (VARCHAR): Full app name
+   - `created_at` (TIMESTAMP): Record creation timestamp
+
+   **Reviews Table**:
+
+   - `review_id` (INTEGER PRIMARY KEY): Unique review identifier
+   - `bank_id` (INTEGER FOREIGN KEY): References banks table
+   - `review_text` (TEXT): Review content
+   - `rating` (INTEGER): 1-5 star rating
+   - `review_date` (DATE): Review posting date
+   - `sentiment_label` (VARCHAR): POSITIVE/NEGATIVE
+   - `sentiment_score` (DECIMAL): Sentiment confidence score
+   - `source` (VARCHAR): Data source (Google Play Store)
+   - `themes` (TEXT[]): Array of identified themes
+   - `created_at` (TIMESTAMP): Record creation timestamp
+
+3. **Data Insertion**:
+   - Python script using `psycopg2` for database operations
+   - Batch insertion for efficiency
+   - Data validation and error handling
+
+### 📤 Output
+
+- ✅ PostgreSQL database with schema
+- ✅ 1,000+ reviews stored in database
+- ✅ SQL verification queries
+- ✅ Schema documentation
+
+## 📈 Task 4: Insights and Recommendations
+
+### 🔬 Methodology
+
+1. **Insights Generation**:
+
+   - Identify 2+ satisfaction drivers per bank (e.g., fast navigation, good UI)
+   - Identify 2+ pain points per bank (e.g., crashes, slow loading)
+   - Compare banks across key metrics (ratings, sentiment, themes)
+
+2. **Visualizations** (3-5 plots):
+
+   - Rating distribution by bank
+   - Sentiment trends and analysis
+   - Theme distribution analysis
+   - Comparative dashboard
+   - Keyword cloud visualization
+
+3. **Recommendations**:
+
+   - 2+ actionable improvements per bank
+   - Prioritized by impact and feasibility
+   - Evidence-based with review examples
+
+4. **Ethical Considerations**:
+   - Review bias documentation
+   - Limitations and mitigation strategies
+
+### 📤 Output
+
+- 📊 5 key visualizations
+- 📝 Insights and recommendations report
+- 🔍 Bank comparison analysis
+- ⚠️ Ethical considerations documentation
+
+### 📥 Task 3 KPIs
+
+- ✅ Working database connection + insert script
+- ✅ Tables populated with >1,000 review entries
+- ✅ SQL dump or schema file committed to GitHub
+
+### 📈 Task 4 KPIs
+
+- ✅ 2+ drivers/pain points with evidence per bank
+- ✅ Clear, labeled visualizations (3-5 plots)
+- ✅ Practical recommendations per bank
+
 ## 🛠️ Technologies Used
 
 - 🕷️ **Web Scraping**: google-play-scraper
 - 🤖 **NLP**: Transformers (DistilBERT), spaCy, scikit-learn
 - 📊 **Data Processing**: Pandas, NumPy
 - 🧠 **Machine Learning**: Hugging Face Transformers, PyTorch
+- 🗄️ **Database**: PostgreSQL, psycopg2
+- 📈 **Visualization**: Matplotlib, Seaborn, WordCloud
 - 🔀 **Version Control**: Git, GitHub
 
 ## ⚠️ Important Notes
@@ -207,3 +301,5 @@ python run_task2.py
 4. **⏱️ Rate Limiting**: The scraper includes delays between requests to be respectful. Scraping 1,200+ reviews may take 10-20 minutes.
 
 5. **📦 Dependencies**: Make sure to install spaCy's English model: `python -m spacy download en_core_web_sm`
+
+6. **🗄️ PostgreSQL**: Install PostgreSQL and create the `bank_reviews` database before running Task 3 scripts.
